@@ -4,22 +4,6 @@ import Die from '../Die';
 import { nanoid } from 'nanoid';
 
 function Game() {
-    
-    function threePairs(dice) {
-        const encounteredDice = {};
-
-        dice.forEach(die => {
-            if (encounteredDice[die]){
-                encounteredDice[die] = 1
-            }else {
-                encounteredDIce[die] = encounteredDice[die] + 1
-            }
-        })
-        const hasThreePairs = Object.values(encounteredDice).every(cardinality => cardinality === 2)
-        return hasThreePairs
-}
-
-
 
   const [dice, setDice] = useState([
     { id: nanoid(), value: 0, isHeld: false },
@@ -29,7 +13,7 @@ function Game() {
     { id: nanoid(), value: 0, isHeld: false },
     { id: nanoid(), value: 0, isHeld: false },
   ]);
-  const allDiceHeld = dice.map(die => ({ ...die, isHeld: true }));
+
   const [bankedScore, setBankedScore] = useState(0);
   const [currentScore, setCurrentScore] = useState(0);
   const [diceSet, setDiceSet] = useState(false);
@@ -52,35 +36,45 @@ function Game() {
   }
     
   const bankPoints = () => {
-    let ones = 0;
-    let fives = 0;
-    
-  !busted ? setRollBtnDisabled(false) : 
-    setRollBtnDisabled(false) &&
-    setRollBtnDisabled(true) &&
+  if (!busted) {
+    setRollBtnDisabled(false);
+  } else {
+    setRollBtnDisabled(false);
+    setRollBtnDisabled(true);
     setBankerinoBlock(true)
-  
-  for (let i = 0; i < 6; i++) {
-    if (dice[i].isHeld && (dice[i].value === 1 || dice[i].value === 5)) {
-      dice[i].value === 1 ? 
-        ones++ : fives++
-        setCurrentScore((currentScore) + ones * 100 + fives * 50)
-        dice[i].isHeld = false;
-        dice[i].value = 0
-    
-    (ones === 0 && fives === 0) ? 
-        (setBusted(true) &&
-        setCurrentScore(0)) : 
-        setBusted(false)
-        
-    
-        
-    } 
-    
   }
-  
-   
+
+  let ones = 0;
+  let twos = 0;
+  let threes = 0;
+  let fours = 0;
+  let fives = 0;
+  let sixes = 0;
+  let bonus = 0;
+  let newDice = [...dice];
  
+  for (let i = 0; i < 6; i++) {
+    if (newDice[i].isHeld && (newDice[i].value === 1 || newDice[i].value === 5)) {
+      if (newDice[i].value === 1) {
+        ones++;
+      } else {
+        fives++;
+      }
+      newDice[i].isHeld = false;
+      newDice[i].value = 0
+    } 
+  }
+ 
+  setDice(newDice);
+  setCurrentScore(parseInt(currentScore) + ones * 100 + fives * 50);
+  if (ones === 0 && fives === 0) {
+   
+      setBusted(true);
+      setCurrentScore(0);
+   
+  } else {
+    setBusted(false);
+  }
 };
     
     const endTurn = () => {
@@ -92,30 +86,30 @@ function Game() {
         
     }
     const rollDice = () => {
-      if (currentScore > 350) {
-        setEndTurnBtnDisabled(false);
-      } else {
-        setEndTurnBtnDisabled(true);
-      }
-      setRollBtnDisabled(true);
-      let newDice;
-      if (currentScore > 0) {
-        newDice = dice.map((die) => {
-          return die.value !==0
-            ? { ...die, value: Math.floor(Math.random() * 6) + 1, isHeld: die.isHeld=false} 
-            : { ...die };
-        });
-      } else {
-        newDice = !dice.map((die) => {
-          return die.value !==0
-            ? { ...die, value: Math.floor(Math.random() * 6) + 1 }
-            : { ...die };
-        });
-      }
+  if (currentScore > 350) {
+    setEndTurnBtnDisabled(false);
+  } else {
+    setEndTurnBtnDisabled(true);
+  }
+  setRollBtnDisabled(true);
+  let newDice;
+  if (currentScore > 0) {
+    newDice = dice.map((die) => {
+      return die.value !==0
+        ? { ...die, value: Math.floor(Math.random() * 6) + 1, isHeld: die.isHeld=false} 
+        : { ...die };
+    });
+  } else {
+    newDice = !dice.map((die) => {
+      return die.value !==0
+        ? { ...die, value: Math.floor(Math.random() * 6) + 1 }
+        : { ...die };
+    });
+  }
 
   const onesAndFives = newDice.filter((die) => die.value === 1 || die.value === 5);
   if (onesAndFives.length === 0) {
-    
+    setTimeout(() => {
       setBusted(true);
       setRollBtnDisabled(true);
       setCurrentScore(0);
@@ -124,7 +118,7 @@ function Game() {
           <h1 className="gameh1">YOU BUSTED!</h1>
         </div>
       );
-    
+    }, 300);
   } else {
     setBusted(false);
   }
@@ -230,7 +224,5 @@ const resetGame = () => {
 }
 
 export default Game;
-
-
 
 
