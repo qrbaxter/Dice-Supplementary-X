@@ -414,8 +414,6 @@ const resetGame = () => {
             />
           ))}
       </div>
-      
-      
       <div className="buttons1">
   {diceSet && (
     <button className="rollBtn" onClick={rollDice} disabled={rollBtnDisabled}>
