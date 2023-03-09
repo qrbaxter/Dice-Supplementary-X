@@ -226,20 +226,3 @@ const resetGame = () => {
 export default Game;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
