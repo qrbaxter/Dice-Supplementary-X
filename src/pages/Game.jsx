@@ -374,31 +374,42 @@ const resetGame = () => {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   return (
     <div>
+      <div className="groupTopText">
+        
+            
         <div className="topSection">
-            <div>
-            <p className="bankedText">Score: {bankedScore}</p>
-            <p className="bustedText">Busts: {bustCount}</p>
-            </div>
-            
-            <div>
-            {busted ?
-            <h1 className="gameh1">YOU BUSTED!</h1>
-            : threeBigPairs ? 
-            <h1 className="gameh1">Three Pairs! +500!</h1>
-           : theStraightFlush ? 
-           <h1 className = "gameh1">Straight Flush, +1000!</h1>
-           :
-            <h1 className="gameh1">BANKED: {currentScore}</h1>
-            
-        }
-            </div>
- 
-            <div>
+           
+        <div className="topperinox">
+              <p className="bankedText">Score: {bankedScore}</p>
+              <p className="bustedText">Busts: <span>{bustCount}</span></p>
+        </div> 
+      
+          
+        <div className = "middleSection">
+          {busted ?
+          <h1 className="gameh1">YOU BUSTED!</h1>
+          : threeBigPairs ? 
+          <h1 className="gameh1">Three Pairs! +500!</h1>
+          : theStraightFlush ? 
+          <h1 className = "gameh1">Straight Flush, +1000!</h1>
+          :
+          <h1 className="bankedh1">BANKED: {currentScore}</h1>
+              }
+        </div>
+          
+
+        <div className="theRightSection">
             <button className="endTurnBtn" onClick={endTurn} disabled={endTurnBtnDisabled}>End Turn</button>
             <button className="resetBtn" onClick={resetGame}>Reset Game</button>
-            </div>
-            
         </div>
+
+        </div>
+       
+
+      </div>
+      <p className = "reminder">Focus on banking 1's and 5's</p>
+      <p className = "reminder">Get to 10,000 </p>
+      <p className="reminder">Remember to End Turn at 350 or more!</p>
       
 <div>
       <div className="dice-container">
