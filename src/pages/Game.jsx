@@ -387,11 +387,11 @@ const resetGame = () => {
           
         <div className = "middleSection">
           {busted ?
-          <h1 className="gameh1">YOU BUSTED!</h1>
+          <h1 className="bankedh1">YOU BUSTED!</h1>
           : threeBigPairs ? 
-          <h1 className="gameh1">Three Pairs! +500!</h1>
+          <h1 className="bankedh1">Three Pairs! +500!</h1>
           : theStraightFlush ? 
-          <h1 className = "gameh1">Straight Flush, +1000!</h1>
+          <h1 className = "bankedh1">Straight Flush, +1000!</h1>
           :
           <h1 className="bankedh1">BANKED: {currentScore}</h1>
               }
