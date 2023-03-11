@@ -106,7 +106,8 @@
     .dice-container {
         height: 8em;
         display: flex; 
-        margin-top: -20px
+        margin-top: -20px;
+        font-size: 1.5em
     
     }
     
@@ -210,8 +211,9 @@
         text-shadow: -1px 1px black, 1px 1px black, 1px 1px black, 1px -1px black;
         font-size: 0.88em;
         overflow-x: hidden; /* added to prevent horizontal scrolling */
-      }
-    
+    }
+
+   
     nav {
         display: flex;
         flex-direction: column;
@@ -244,14 +246,14 @@
         line-height: 20px;
     }
     
-   
+
     
     .dice-container {
         display: flex; 
         flex-direction: row;
         gap: 10px;
         justify-content: center;
-        font-size: 1.5em
+        font-size: 1.8em
     }
     
     
