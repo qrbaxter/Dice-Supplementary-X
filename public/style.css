@@ -50,9 +50,9 @@
     .dice-container {
         display: flex; 
         flex-direction: row;
-        gap: 8px;
+        gap: 10px;
         justify-content: center;
-        font-size: 0.8em;
+        font-size: 1em
         
     }
     
@@ -109,8 +109,8 @@
         height: 8em;
         display: flex; 
         margin-top: -20px;
-        font-size: 0.1em;
-        width: 100%
+    
+
     
     }
     
@@ -256,7 +256,7 @@
         flex-direction: row;
         gap: 10px;
         justify-content: center;
-        font-size: 0.8em;
+        font-size: 1em;
         
 
     }
@@ -456,9 +456,9 @@
     .dice-container {
         display: flex; 
         flex-direction: row;
-        gap: 8px;
+        gap: 10px;
         justify-content: center;
-        font-size: 0.8em;
+        font-size: 1em;
         
     }
     
