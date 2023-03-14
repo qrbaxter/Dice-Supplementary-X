@@ -64,7 +64,7 @@
         
     }
     
-    .buttons1>button, .endTurnBtn, .resetBtn{
+    .buttons1>button, .endTurnBtn, .resetBtn, .continueBtn{
         background-color: darkkhaki;
         text-shadow: -1px 1px black, 1px 1px black, 1px 1px black, 1px -1px black;
         color: yellow;
@@ -76,11 +76,11 @@
         justify-content: flex-start;
     }
     
-    .buttons1>button:hover, .endTurnBtn:hover, .resetBtn:hover {
+    .buttons1>button:hover, .endTurnBtn:hover, .resetBtn:hover, .continueBtn:hover {
         background-color: turquoise
     }
     
-    .buttons1>button:focus, .endTurnBtn:focus, .resetBtn, .resetBtn:hover, .resetBtn:focus{
+    .buttons1>button:focus, .endTurnBtn:focus, .resetBtn, .resetBtn:hover, .resetBtn:focus, .continueBtn:hover, .continueBtn:focus{
         outline: none;
     }
     
@@ -203,6 +203,19 @@
         
       }
 
+      .pinkerino {
+        color: palevioletred
+      }
+
+      .continueBtn {
+        text-align: center;
+        padding: 1em;
+        font-size: 1em;
+        width: 100%
+
+    }
+   
+
 }
 @media (min-width: 376px) and (max-width: 768px){
     html, body {
@@ -213,10 +226,9 @@
         color: yellow;
         text-shadow: -1px 1px black, 1px 1px black, 1px 1px black, 1px -1px black;
         font-size: 0.88em;
-        overflow-x: hidden; /* added to prevent horizontal scrolling */
-    }
-
-   
+        overflow-x: hidden;
+      }
+    
     nav {
         display: flex;
         flex-direction: column;
@@ -249,16 +261,15 @@
         line-height: 20px;
     }
     
-
+   
     
     .dice-container {
         display: flex; 
         flex-direction: row;
         gap: 10px;
         justify-content: center;
-        font-size: 1em;
+        font-size: 1em
         
-
     }
     
     
@@ -269,7 +280,7 @@
         
     }
     
-    .buttons1>button, .endTurnBtn, .resetBtn{
+    .buttons1>button, .endTurnBtn, .resetBtn, .continueBtn{
         background-color: darkkhaki;
         text-shadow: -1px 1px black, 1px 1px black, 1px 1px black, 1px -1px black;
         color: yellow;
@@ -281,11 +292,11 @@
         justify-content: flex-start;
     }
     
-    .buttons1>button:hover, .endTurnBtn:hover, .resetBtn:hover {
+    .buttons1>button:hover, .endTurnBtn:hover, .resetBtn:hover, .continueBtn:hover {
         background-color: turquoise
     }
     
-    .buttons1>button:focus, .endTurnBtn:focus, .resetBtn, .resetBtn:hover, .resetBtn:focus{
+    .buttons1>button:focus, .endTurnBtn:focus, .resetBtn, .resetBtn:hover, .resetBtn:focus, .continueBtn:hover, .continueBtn:focus{
         outline: none;
     }
     
@@ -313,7 +324,9 @@
     .dice-container {
         height: 8em;
         display: flex; 
-        margin-top: -20px
+        margin-top: -20px;
+    
+
     
     }
     
@@ -405,18 +418,31 @@
         margin-top: 1em;
         
       }
-    
+
+      .pinkerino {
+        color: palevioletred
+      }
+
+      .continueBtn {
+        text-align: center;
+        padding: 1em;
+        font-size: 1em;
+        width: 100%
+
+    }
+   
+   
 }
 @media (min-width: 769px){
     html, body {
         margin: 0;
         font-family: 'Press Start 2P';
         font-weight: 600;
-        background-color: purple;
+        background-color: green;
         color: yellow;
         text-shadow: -1px 1px black, 1px 1px black, 1px 1px black, 1px -1px black;
-        font-size: 1em;
-        overflow-x: hidden; /* added to prevent horizontal scrolling */
+        font-size: 0.88em;
+        overflow-x: hidden;
       }
     
     nav {
@@ -458,7 +484,7 @@
         flex-direction: row;
         gap: 10px;
         justify-content: center;
-        font-size: 1em;
+        font-size: 1em
         
     }
     
@@ -470,7 +496,7 @@
         
     }
     
-    .buttons1>button, .endTurnBtn, .resetBtn{
+    .buttons1>button, .endTurnBtn, .resetBtn, .continueBtn{
         background-color: darkkhaki;
         text-shadow: -1px 1px black, 1px 1px black, 1px 1px black, 1px -1px black;
         color: yellow;
@@ -482,11 +508,11 @@
         justify-content: flex-start;
     }
     
-    .buttons1>button:hover, .endTurnBtn:hover, .resetBtn:hover {
+    .buttons1>button:hover, .endTurnBtn:hover, .resetBtn:hover, .continueBtn:hover {
         background-color: turquoise
     }
     
-    .buttons1>button:focus, .endTurnBtn:focus, .resetBtn, .resetBtn:hover, .resetBtn:focus{
+    .buttons1>button:focus, .endTurnBtn:focus, .resetBtn, .resetBtn:hover, .resetBtn:focus, .continueBtn:hover, .continueBtn:focus{
         outline: none;
     }
     
@@ -514,7 +540,9 @@
     .dice-container {
         height: 8em;
         display: flex; 
-        margin-top: -20px
+        margin-top: -20px;
+    
+
     
     }
     
@@ -553,8 +581,7 @@
     
     .bustedText {
         padding-left: 1em;
-        margin-top: 0;
-        line-height: 0
+        margin-top: 0.1em;
     }
     
     
@@ -608,7 +635,23 @@
         
       }
 
+      .pinkerino {
+        color: palevioletred
+      }
+   
    
 
+      
+      .pinkerino {
+        color: palevioletred
+      }
+  
+      .continueBtn {
+        text-align: center;
+        padding: 1em;
+        font-size: 1em;
+        width: 100%
+
+    }
       
 }
