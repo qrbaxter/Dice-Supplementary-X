@@ -116,6 +116,7 @@ function Game() {
     { id: nanoid(), value: 0, isHeld: false },
   ]);
   
+  const [endGame, setEndGame] = useState(false)
   const [bankedScore, setBankedScore] = useState(0);
   const [currentScore, setCurrentScore] = useState(0);
   const [diceSet, setDiceSet] = useState(false);
@@ -242,7 +243,14 @@ if (bigScore > 0) {
     setDice(newDice);
     setCurrentScore((currentScore) + ones * 100 + fives * 50);
     
-    if (ones === 0 && fives === 0) { 
+    if (bankedScore >= 10000){
+      setEndGame(true)
+      setNewDiceBtnDisabled(true)
+      setRollBtnDisabled(true)
+      setBankerinoBlock(true)
+    }
+
+    if (ones === 0 && fives === 0 && (!theTriplet) && (!threeBigPairs) && (!theStraightFlush)) { 
       setBusted(true);
       setCurrentScore(0);
     } else {
@@ -309,6 +317,7 @@ if (bigScore > 0) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const resetGame = () => {
+    setEndGame(false)
     setThreeBigPairs(false)
     setTheTriplet(false)
     setTheStraightFlush(false)
@@ -317,11 +326,21 @@ const resetGame = () => {
     localStorage.clear()
     setBustCount(0)
     newSet()
+
+}
+
+const continueEndGame = () => {
+  setEndGame(false)
+  newSet()
+  setNewDiceBtnDisabled(true)
+  setRollBtnDisabled(true)
+  setBankerinoBlock(false)
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const newSet = () => {
+      setCurrentScore(10000)
       setThreeBigPairs(false)
       setTheStraightFlush(false)
       setRollBtnDisabled(true)
@@ -392,7 +411,12 @@ const resetGame = () => {
           <h1 className="bankedh1">Three Pairs! +500!</h1>
           : theStraightFlush ? 
           <h1 className = "bankedh1">Straight Flush, +1000!</h1>
-          :
+          : endGame ? 
+          <div>
+          <h1 className = "bankedh1">Game Over!</h1>
+          <h2>You scored <span className = "pinkerino">{bankedScore}</span> points, in <span className="pinkerino">{bustCount} </span> busts!</h2>
+          <button className = "continueBtn" onClick = {continueEndGame}>Continue Playing</button>
+          </div> :
           <h1 className="bankedh1">BANKED: {currentScore}</h1>
               }
         </div>
